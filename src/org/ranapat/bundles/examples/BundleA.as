@@ -12,6 +12,8 @@ package org.ranapat.bundles.examples
 		public function BundleA() 
 		{
 			super();
+			
+			this._controlMode = Bundle.CONTROL_MODE_MANUAL;
 		}
 		
 		override public function create():void {

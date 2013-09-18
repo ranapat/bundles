@@ -53,7 +53,7 @@ package org.ranapat.bundles {
 				if (!tmp.started) {
 					for (var i:String in this.dictionary) {
 						tmp = this.dictionary[i] as Bundle;
-						if (tmp.started) {
+						if (tmp.controlMode == Bundle.CONTROL_MODE_AUTOMATIC && tmp.started) {
 							tmp.stop();
 						}
 					}
@@ -63,6 +63,23 @@ package org.ranapat.bundles {
 				}
 				
 				result = true;
+			}
+			
+			return result;
+		}
+		
+		public function unset(name:String):Boolean {
+			var result:Boolean;
+			
+			if (this.dictionary[name]) {
+				var tmp:Bundle;
+				
+				tmp = this.dictionary[name] as Bundle;
+				if (tmp.started) {
+					tmp.stop();
+					
+					result = true;
+				}
 			}
 			
 			return result;
