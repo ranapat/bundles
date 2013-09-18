@@ -8,7 +8,7 @@ package org.ranapat.bundles {
 			this.dictionary = new Dictionary();
 		}
 		
-		public function register(name:String, instance:Bundle, autoSet:Boolean = true):Boolean {
+		protected function register(name:String, instance:Bundle, autoSet:Boolean = true):Boolean {
 			var result:Boolean;
 			
 			if (!this.dictionary[name]) {
@@ -25,7 +25,7 @@ package org.ranapat.bundles {
 			return result;
 		}
 		
-		public function unregister(name:String):Boolean {
+		protected function unregister(name:String):Boolean {
 			var result:Boolean;
 			
 			if (this.dictionary[name]) {
@@ -47,7 +47,13 @@ package org.ranapat.bundles {
 			return result;
 		}
 		
-		public function set(name:String):Boolean {
+		protected function unregisterAll():void {
+			for (var i:String in this.dictionary) {
+				this.unregister(i);
+			}
+		}
+		
+		protected function set(name:String):Boolean {
 			var result:Boolean;
 			
 			if (this.dictionary[name]) {
@@ -72,7 +78,7 @@ package org.ranapat.bundles {
 			return result;
 		}
 		
-		public function unset(name:String):Boolean {
+		protected function unset(name:String):Boolean {
 			var result:Boolean;
 			
 			if (this.dictionary[name]) {

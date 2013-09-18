@@ -23,8 +23,8 @@ package org.ranapat.bundles.examples
 			// entry point
 			
 			var m:Mesh = new Mesh();
-			m.register("a", new BundleA());
-			m.register("b", new BundleB());
+			//m.register("a", new BundleA());
+			//m.register("b", new BundleB());
 			
 			//m.set("a");
 			//m.set("a");
