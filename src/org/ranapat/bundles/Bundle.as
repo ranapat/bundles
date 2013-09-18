@@ -34,12 +34,12 @@ package org.ranapat.bundles {
 			//
 		}
 		
-		public function stop():void {
-			this._started = false;
-		}
-		
 		public function start():void {
 			this._started = true;
+		}
+		
+		public function stop():void {
+			this._started = false;
 		}
 		
 		protected function announce(command:Command):void {
