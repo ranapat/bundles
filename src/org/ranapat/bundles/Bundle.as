@@ -6,6 +6,7 @@ package org.ranapat.bundles {
 		
 		protected var _controlMode:String;
 		private var _started:Boolean;
+		private var _mesh:Mesh;
 		
 		public function Bundle() {
 			Tools.ensureAbstractClass(this, Bundle);
@@ -19,6 +20,10 @@ package org.ranapat.bundles {
 		
 		public function get started():Boolean {
 			return this._started;
+		}
+		
+		public function link(mesh:Mesh):void {
+			this._mesh = mesh;
 		}
 		
 		public function create():void {
@@ -35,6 +40,12 @@ package org.ranapat.bundles {
 		
 		public function start():void {
 			this._started = true;
+		}
+		
+		protected function announce(command:Command):void {
+			if (this._mesh) {
+				this._mesh.announced(command);
+			}
 		}
 	}
 

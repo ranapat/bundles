@@ -26,18 +26,18 @@ package org.ranapat.bundles.examples
 			m.register("a", new BundleA());
 			m.register("b", new BundleB());
 			
-			m.set("a");
-			m.set("a");
-			m.set("b");
-			m.set("a");
-			m.set("a");
-			m.set("c");
+			//m.set("a");
+			//m.set("a");
+			//m.set("b");
+			//m.set("a");
+			//m.set("a");
+			//m.set("c");
 			
-			m.unregister("a");
-			m.unregister("b");
+			//m.unregister("a");
+			//m.unregister("b");
 			
-			m.set("a");
-			m.set("b");
+			//m.set("a");
+			//m.set("b");
 		}
 		
 	}

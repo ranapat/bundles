@@ -8,12 +8,16 @@ package org.ranapat.bundles {
 			this.dictionary = new Dictionary();
 		}
 		
-		public function register(name:String, instance:Bundle):Boolean {
+		public function register(name:String, instance:Bundle, autoSet:Boolean = true):Boolean {
 			var result:Boolean;
 			
 			if (!this.dictionary[name]) {
 				this.dictionary[name] = instance;
+				instance.link(this);
 				instance.create();
+				if (autoSet) {
+					this.set(name);
+				}
 				
 				result = true;
 			}
@@ -83,6 +87,10 @@ package org.ranapat.bundles {
 			}
 			
 			return result;
+		}
+		
+		public function announced(command:Command):void {
+			//
 		}
 		
 	}

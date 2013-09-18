@@ -1,6 +1,7 @@
 package org.ranapat.bundles.examples 
 {
 	import org.ranapat.bundles.Bundle;
+	import org.ranapat.bundles.Command;
 	
 	/**
 	 * ...
@@ -13,7 +14,7 @@ package org.ranapat.bundles.examples
 		{
 			super();
 			
-			this._controlMode = Bundle.CONTROL_MODE_MANUAL;
+			//this._controlMode = Bundle.CONTROL_MODE_MANUAL;
 		}
 		
 		override public function create():void {
@@ -28,6 +29,7 @@ package org.ranapat.bundles.examples
 			super.start();
 			
 			trace("started " + this)
+			this.announce(new Command());
 		}
 		
 		override public function stop():void {
