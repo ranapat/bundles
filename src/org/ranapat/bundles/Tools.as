@@ -20,6 +20,11 @@ package org.ranapat.bundles {
 		public static function shortenClassName(name:String):String {
 			return name.substring(name.indexOf("::") + 2, name.length);
 		}
+		
+		public static function getClass(instance:Object):Class {
+			var className:String = getQualifiedClassName(instance);
+			return getDefinitionByName(className) as Class;
+		}
 	}
 
 }

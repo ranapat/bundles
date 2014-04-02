@@ -29,7 +29,7 @@ package org.ranapat.bundles.examples {
 		override protected function announced(command:Command):void {
 			super.announced(command);
 			
-			trace("announced " + command + " .. " + command.name + " .. " + command.shortName + " .. " + command.get("parameter") + " .. " + command.get("parameter1"))
+			trace("announced " + command + " .. (" + command._class + ") .. " + command.name + " .. " + command.shortName + " .. " + command.get("parameter") + " .. " + command.get("parameter1"))
 		}
 		
 	}
