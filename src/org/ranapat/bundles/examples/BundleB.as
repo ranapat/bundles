@@ -26,6 +26,7 @@ package org.ranapat.bundles.examples
 			super.start();
 			
 			trace("started " + this)
+			this.meld("TestCommandBundleB", { parameter: "all the same", parameter1: "fuck it " + Math.random() })
 		}
 		
 		override public function stop():void {

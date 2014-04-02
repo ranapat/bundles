@@ -5,11 +5,35 @@ package org.ranapat.bundles {
 		private var dictionary:Dictionary;
 		
 		public function Mesh() {
+			Tools.ensureAbstractClass(this, Mesh);
+			
 			this.dictionary = new Dictionary();
 		}
 		
-		protected function register(name:String, instance:Bundle, autoSet:Boolean = true):Boolean {
+		public function announce(command:Command):void {
+			this.announced(command);
+		}
+		
+		protected function announced(command:Command):void {
+			//
+		}
+		
+		protected function complete():void {
+			this.unregisterAll();
+			
+			MeshSemaphore.instance.dispatchEvent(new MeshEvent(MeshEvent.COMPLETE, this));
+		}
+		
+		protected function failed():void {
+			this.unregisterAll();
+			
+			MeshSemaphore.instance.dispatchEvent(new MeshEvent(MeshEvent.FAILED, this));
+		}
+		
+		protected function register(instance:Bundle, name:String = null, autoSet:Boolean = true):Boolean {
 			var result:Boolean;
+			
+			name = name? name : this.generateUniqueBundleName();
 			
 			if (!this.dictionary[name]) {
 				this.dictionary[name] = instance;
@@ -95,10 +119,9 @@ package org.ranapat.bundles {
 			return result;
 		}
 		
-		public function announced(command:Command):void {
-			//
+		protected function generateUniqueBundleName():String {
+			return "anonymous." + Math.random() + "." + Math.random();
 		}
-		
 	}
 
 }

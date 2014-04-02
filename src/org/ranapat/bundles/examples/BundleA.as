@@ -1,7 +1,6 @@
 package org.ranapat.bundles.examples 
 {
 	import org.ranapat.bundles.Bundle;
-	import org.ranapat.bundles.Command;
 	
 	/**
 	 * ...
@@ -29,7 +28,7 @@ package org.ranapat.bundles.examples
 			super.start();
 			
 			trace("started " + this)
-			this.announce(new Command());
+			this.announce(new TestCommand(Math.random().toString()));
 		}
 		
 		override public function stop():void {

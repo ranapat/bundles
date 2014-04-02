@@ -12,6 +12,15 @@ package org.ranapat.bundles {
 				throw new Error(getQualifiedClassName(_class) + " Class can not be instantiated directly.");
 			}
 		}
+		
+		public static function getFullClassName(instance:Object):String {
+			return getQualifiedClassName(instance);
+		}
+		
+		public static function getClassName(instance:Object):String {
+			var name:String = getQualifiedClassName(instance);
+			return name.substring(name.indexOf("::") + 2, name.length);
+		}
 	}
 
 }

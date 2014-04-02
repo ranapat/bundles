@@ -22,22 +22,7 @@ package org.ranapat.bundles.examples
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			// entry point
 			
-			var m:Mesh = new Mesh();
-			//m.register("a", new BundleA());
-			//m.register("b", new BundleB());
-			
-			//m.set("a");
-			//m.set("a");
-			//m.set("b");
-			//m.set("a");
-			//m.set("a");
-			//m.set("c");
-			
-			//m.unregister("a");
-			//m.unregister("b");
-			
-			//m.set("a");
-			//m.set("b");
+			var m:TestMesh = new TestMesh();
 		}
 		
 	}

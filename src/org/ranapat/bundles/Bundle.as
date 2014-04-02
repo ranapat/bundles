@@ -14,6 +14,14 @@ package org.ranapat.bundles {
 			this._controlMode = Bundle.CONTROL_MODE_AUTOMATIC;
 		}
 		
+		public function create():void {
+			//
+		}
+		
+		public function destroy():void {
+			//
+		}
+		
 		public function get controlMode():String {
 			return this._controlMode;
 		}
@@ -26,14 +34,6 @@ package org.ranapat.bundles {
 			this._mesh = mesh;
 		}
 		
-		public function create():void {
-			//
-		}
-		
-		public function destroy():void {
-			//
-		}
-		
 		public function start():void {
 			this._started = true;
 		}
@@ -42,9 +42,15 @@ package org.ranapat.bundles {
 			this._started = false;
 		}
 		
+		protected function meld(name:String, parameters:*):void {
+			if (this._mesh) {
+				this._mesh.announce(new Command(name, parameters));
+			}
+		}
+		
 		protected function announce(command:Command):void {
 			if (this._mesh) {
-				this._mesh.announced(command);
+				this._mesh.announce(command);
 			}
 		}
 	}
