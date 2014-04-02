@@ -42,7 +42,7 @@ package org.ranapat.bundles {
 			this._started = false;
 		}
 		
-		protected function meld(name:String, parameters:*):void {
+		protected function meld(name:String, parameters:* = null):void {
 			if (this._mesh) {
 				this._mesh.announce(new Command(name, parameters));
 			}
