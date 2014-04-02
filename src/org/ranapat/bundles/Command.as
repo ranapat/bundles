@@ -5,12 +5,16 @@ package org.ranapat.bundles {
 		private var _parameters:*;
 		
 		public function Command(_name:String = null, _parameters:* = null) {
-			this._name = _name? _name : Tools.getClassName(this);
+			this._name = _name? _name : Tools.getFullClassName(this);
 			this._parameters = _parameters;
 		}
 		
 		public function get name():String {
 			return this._name;
+		}
+		
+		public function get shortName():String {
+			return Tools.shortenClassName(this._name);
 		}
 		
 		public function get(key:String):* {

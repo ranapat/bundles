@@ -17,8 +17,7 @@ package org.ranapat.bundles {
 			return getQualifiedClassName(instance);
 		}
 		
-		public static function getClassName(instance:Object):String {
-			var name:String = getQualifiedClassName(instance);
+		public static function shortenClassName(name:String):String {
 			return name.substring(name.indexOf("::") + 2, name.length);
 		}
 	}
