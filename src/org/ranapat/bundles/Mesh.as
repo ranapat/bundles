@@ -71,9 +71,11 @@ package org.ranapat.bundles {
 			return result;
 		}
 		
-		protected function unregisterAll():void {
+		protected function unregisterAll(forceAll:Boolean = false):void {
 			for (var i:String in this.dictionary) {
-				this.unregister(i);
+				if (forceAll || (this.dictionary[i] as Bundle).controlMode == Bundle.CONTROL_MODE_AUTOMATIC) {
+					this.unregister(i);
+				}
 			}
 		}
 		
