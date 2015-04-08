@@ -30,6 +30,10 @@ package org.ranapat.bundles {
 			MeshSemaphore.instance.dispatchEvent(new MeshEvent(MeshEvent.FAILED, this));
 		}
 		
+		protected function yell(parameters:*):void {
+			MeshSemaphore.instance.dispatchEvent(new MeshEvent(MeshEvent.YELL, this, parameters));
+		}
+		
 		protected function register(instance:Bundle, name:String = null, autoSet:Boolean = true):Boolean {
 			var result:Boolean;
 			
